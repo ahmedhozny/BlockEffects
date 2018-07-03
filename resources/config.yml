@@ -3,7 +3,7 @@ enabled: true
 
 #block id must be put between " "
 #visible means whether things like particles and bubbles are enabled or not
-#beneath is used to specify
+#beneath is optional and it checks if the block under the block that the player moving on is that at beneath or not and depending on that, an effect will be given
 
 blocks:
   "5:0":

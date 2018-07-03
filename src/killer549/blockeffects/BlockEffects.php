@@ -48,7 +48,7 @@ class BlockEffects extends PluginBase implements Listener{
 		$player = $ev->getPlayer();
 		$config = $this->config["blocks"];
 		$block = $player->getLevel()->getBlock($ev->getPlayer()->floor()->subtract(0, 1));
-		// TODO: Add additional block that gives the player effect(s) if they are inside specific area.
+		// TODO: Add additional block that gives players effect(s) if they are inside specific area.
 		if(isset($config[$block->getId(). ":". $block->getDamage()])){
 			$effectsArrays = $config[$block->getId(). ":". $block->getDamage()];
 			foreach($effectsArrays as $effect){
@@ -57,8 +57,10 @@ class BlockEffects extends PluginBase implements Listener{
 					if($effect["beneath"] != $beneath->getId(). ":". $beneath->getDamage())continue;
 				}
 
+				if(!isset($effect["effect"]) or !isset($effect["duration"]))continue;
+
 				$effectID = Effect::getEffect((int) $effect["effect"]);
-				$duration = isset($effect["duration"]) ? (int) $effect["duration"] : 0;
+				$duration = (int) $effect["duration"];
 				$amplifier = isset($effect["amplifier"]) ? (int) $effect["amplifier"] : 0;
 				$visible = isset($effect["visible"]) ? (bool) $effect["visible"] : false;
 				$player->addEffect(new EffectInstance($effectID, $duration * 20, $amplifier, $visible));

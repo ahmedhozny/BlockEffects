@@ -1,0 +1,5 @@
+name: BlockEffects
+author: killer549
+version: 1.0.0
+api: 3.0.0
+main: killer549\blockeffects\BlockEffects

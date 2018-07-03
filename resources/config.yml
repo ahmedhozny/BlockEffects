@@ -1,0 +1,18 @@
+#setting this to false will disable all the effects and the plugin
+enabled: true
+
+#block id must be put between " "
+#visible means whether things like particles and bubbles are enabled or not
+#beneath is used to specify
+
+blocks:
+  "5:0":
+    - effect: 1
+      duration: 3
+      amplifier: 2
+      visible: true
+      beneath: "49:0"
+    - effect: 8
+      duration: 8
+      amplifier: 1
+      visible: false

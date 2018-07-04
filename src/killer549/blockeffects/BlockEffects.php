@@ -44,10 +44,10 @@ class BlockEffects extends PluginBase implements Listener{
 		}
 	}
 
-	public function onMoving(PlayerMoveEvent $ev): void{
+	public function onPlayerMove(PlayerMoveEvent $ev): void{
 		$player = $ev->getPlayer();
 		$config = $this->config["blocks"];
-		$block = $player->getLevel()->getBlock($ev->getPlayer()->floor()->subtract(0, 1));
+		$block = $player->getLevel()->getBlock($player->floor()->subtract(0, 1));
 		// TODO: Add additional block that gives players effect(s) if they are inside specific area.
 		if(isset($config[$block->getId(). ":". $block->getDamage()])){
 			$effectsArrays = $config[$block->getId(). ":". $block->getDamage()];
